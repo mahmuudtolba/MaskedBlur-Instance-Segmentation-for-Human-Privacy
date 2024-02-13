@@ -33,7 +33,7 @@ model.eval()
 device = 'cpu'
 # Now you can use 'loaded_model' to make predictions in real-time
 input_video_path = "./instance.mkv"
-output_video_path = "./instance_output.mkv"
+output_video_path = "./output.avi"
 
 # Open the webcam
 cap = cv2.VideoCapture(input_video_path)
@@ -42,7 +42,7 @@ frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
 fourcc = cv2.VideoWriter_fourcc(*'XVID') # Codec used for writing the video
-out = cv2.VideoWriter('output.avi', fourcc, fps, (frame_width, frame_height)) # Output file, codec, FPS, resolution
+out = cv2.VideoWriter(output_video_path, fourcc, fps, (frame_width, frame_height)) # Output file, codec, FPS, resolution
 
 while (cap.isOpened()):
     # Read a frame from the webcam
